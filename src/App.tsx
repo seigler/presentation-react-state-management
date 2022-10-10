@@ -52,7 +52,13 @@ function Introduction() {
   return (
     <main>
       <h2>Introduction</h2>
-      <p>Here are some ways to store state in a React Application.</p>
+      <p>
+        This repo has a simple ToDo app mostly using React's <code>useState</code> hook.
+      </p>
+      <p>
+        We will rewrite this app with <code>useReducer</code>, <code>Redux</code>, <code>useContext</code>, and
+        something new, Preact <code>signal</code>s.
+      </p>
     </main>
   )
 }
