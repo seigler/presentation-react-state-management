@@ -53,11 +53,12 @@ function Introduction() {
     <main>
       <h2>Introduction</h2>
       <p>
-        This repo has a simple ToDo app mostly using React's <code>useState</code> hook.
+        This repo has a simple ToDo app mostly using React's{' '}
+        <code>useState</code> hook.
       </p>
       <p>
-        We will rewrite this app with <code>useReducer</code>, <code>Redux</code>, <code>useContext</code>, and
-        something new, Preact <code>signal</code>s.
+        We will rewrite this app with <code>useReducer</code>,{' '}
+        <code>useContext</code>, and something new, Preact <code>signal</code>s.
       </p>
     </main>
   )

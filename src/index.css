@@ -8,17 +8,17 @@ My updates:
 /* Global variables. */
 :root {
   /* Set sans-serif & mono fonts */
-  --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
-    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
-    "Helvetica Neue", sans-serif;
-  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  --sans-font: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir,
+    'Nimbus Sans L', Roboto, 'Noto Sans', 'Segoe UI', Arial, Helvetica,
+    'Helvetica Neue', sans-serif;
+  --mono-font: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 
   /* Default (light) theme */
   --bg: #fff;
   --accent-bg: #f5f7ff;
   --text: #212121;
   --text-light: #585858;
-  --border: #898EA4;
+  --border: #898ea4;
   --accent: #0d47a1;
   --code: #d81b60;
   --preformatted: #444;
@@ -50,7 +50,9 @@ My updates:
 :root {
   box-sizing: border-box;
 }
-*, ::before, ::after {
+*,
+::before,
+::after {
   box-sizing: inherit;
 }
 
@@ -149,7 +151,13 @@ h6 {
 }
 
 /* Prevent long strings from overflowing container */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -190,11 +198,11 @@ a:hover {
 }
 
 button,
-[role="button"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-label[type="button"] {
+[role='button'],
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+label[type='button'] {
   border: none;
   border-radius: 5px;
   background-color: var(--accent);
@@ -205,12 +213,12 @@ label[type="button"] {
 }
 
 button[disabled],
-[role="button"][aria-disabled="true"],
-input[type="submit"][disabled],
-input[type="reset"][disabled],
-input[type="button"][disabled],
-input[type="checkbox"][disabled],
-input[type="radio"][disabled],
+[role='button'][aria-disabled='true'],
+input[type='submit'][disabled],
+input[type='reset'][disabled],
+input[type='button'][disabled],
+input[type='checkbox'][disabled],
+input[type='radio'][disabled],
 select[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
@@ -223,7 +231,7 @@ select:disabled {
   background-color: var(--disabled);
 }
 
-input[type="range"] {
+input[type='range'] {
   padding: 0;
 }
 
@@ -236,16 +244,16 @@ abbr[title] {
 
 button:focus,
 button:enabled:hover,
-[role="button"]:focus,
-[role="button"]:not([aria-disabled="true"]):hover,
-input[type="submit"]:focus,
-input[type="submit"]:enabled:hover,
-input[type="reset"]:focus,
-input[type="reset"]:enabled:hover,
-input[type="button"]:focus,
-input[type="button"]:enabled:hover,
-label[type="button"]:focus,
-label[type="button"]:hover {
+[role='button']:focus,
+[role='button']:not([aria-disabled='true']):hover,
+input[type='submit']:focus,
+input[type='submit']:enabled:hover,
+input[type='reset']:focus,
+input[type='reset']:enabled:hover,
+input[type='button']:focus,
+input[type='button']:enabled:hover,
+label[type='button']:focus,
+label[type='button']:hover {
   filter: brightness(1.4);
   cursor: pointer;
 }
@@ -305,7 +313,10 @@ header > nav a:hover {
 }
 
 /* Consolidate box styling */
-aside, details, pre, progress {
+aside,
+details,
+pre,
+progress {
   background-color: var(--accent-bg);
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -329,7 +340,8 @@ aside {
   }
 }
 
-article, fieldset {
+article,
+fieldset {
   border: 1px solid var(--border);
   padding: 1rem;
   border-radius: 5px;
@@ -449,30 +461,30 @@ select:not([multiple]) {
 }
 
 /* checkbox and radio button style */
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
   vertical-align: middle;
   position: relative;
   width: min-content;
 }
 
-input[type="checkbox"] + label,
-input[type="radio"] + label {
+input[type='checkbox'] + label,
+input[type='radio'] + label {
   display: inline-block;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   border-radius: 100%;
 }
 
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
+input[type='checkbox']:checked,
+input[type='radio']:checked {
   background-color: var(--accent);
 }
 
-input[type="checkbox"]:checked::after {
+input[type='checkbox']:checked::after {
   /* Creates a rectangle with colored right and bottom borders which is rotated to look like a check mark */
-  content: " ";
+  content: ' ';
   width: 0.18em;
   height: 0.32em;
   border-radius: 0;
@@ -485,9 +497,9 @@ input[type="checkbox"]:checked::after {
   font-size: 1.8em;
   transform: rotate(45deg);
 }
-input[type="radio"]:checked::after {
+input[type='radio']:checked::after {
   /* creates a colored circle for the checked radio button  */
-  content: " ";
+  content: ' ';
   width: 0.25em;
   height: 0.25em;
   border-radius: 100%;
@@ -508,13 +520,13 @@ input[type="radio"]:checked::after {
 }
 
 /* Set a height for color input */
-input[type="color"] {
+input[type='color'] {
   height: 2.5rem;
-  padding:  0.2rem;
+  padding: 0.2rem;
 }
 
 /* do not show border around file selector button */
-input[type="file"] {
+input[type='file'] {
   border: 0;
 }
 
@@ -565,7 +577,7 @@ cite {
 }
 
 dt {
-    color: var(--text-light);
+  color: var(--text-light);
 }
 
 /* Use mono font for code elements */

@@ -78,10 +78,11 @@ export function UseContext() {
 
   return (
     <main style={isLoading ? { pointerEvents: 'none', cursor: 'wait' } : {}}>
-      <TodoContext.Provider value={{
-        todos,
-        dispatchTodoAction
-      }}>
+      <TodoContext.Provider
+        value={{
+          todos,
+          dispatchTodoAction
+        }}>
         <TodoList />
         <form
           onSubmit={(e) => {
@@ -113,11 +114,7 @@ function TodoList() {
   )
 }
 
-function TodoItem({
-  todo
-}: {
-  todo: Todo
-}) {
+function TodoItem({ todo }: { todo: Todo }) {
   const { dispatchTodoAction: dispatch } = useContext(TodoContext)
   return (
     <label
