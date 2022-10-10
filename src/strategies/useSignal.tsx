@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import localforage from 'localforage'
-import { effect, signal, useSignalEffect } from '@preact/signals-react'
+import { effect, signal } from '@preact/signals-react'
 
 type Todo = {
   id: string

@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import localforage from 'localforage'
-import { useAsyncValue } from 'react-router'
 
 type Todo = {
   id: string
