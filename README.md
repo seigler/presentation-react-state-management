@@ -16,10 +16,6 @@ NPM scripts (run with <code>npm run <em>scriptname</em></code>)
 
 Run the project locally at http://localhost:1234 and watch for code changes
 
-### `publish`
-
-Runs scripts `clean`, `build`, and `deploy` in order.
-
 ### `clean`
 
 Deletes `./dist`
@@ -28,6 +24,8 @@ Deletes `./dist`
 
 Populate `./dist` with a packaged build, ready for upload
 
-### `deploy`
+---
 
-Replace the contents of branch `gh-pages` with the contents of `./dist`
+### Notes
+
+Includes a GitHub workflow to automatically build to GitHub Pages. The workflow may require adjusting if your primary branch isn't `main` or the repo isn't named `react-state-management`.
