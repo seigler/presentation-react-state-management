@@ -9,7 +9,12 @@ export function App() {
       <header>
         <h1>React State Management</h1>
         <nav>
-          <Link to="/">Introduction</Link>
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => (isActive ? 'isActive' : '')}>
+            Introduction
+          </NavLink>
           {strategies.map(({ name }) => (
             <NavLink
               key={name}
