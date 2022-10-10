@@ -7,10 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel",
-    "build": "parcel build",
-    "deploy": "echo > ./dist/.nojekyll && git-directory-deploy --directory dist/",
-    "clean": "rm -rf ./dist",
-    "publish": "npm run clean && npm run build && npm run deploy"
+    "build": "parcel build --public-url ./",
+    "clean": "rm -rf ./dist"
   },
   "keywords": [
     "presentation",
@@ -32,7 +30,6 @@
     "simpledotcss": "^2.1.1"
   },
   "devDependencies": {
-    "git-directory-deploy": "^1.5.1",
     "parcel": "^2.7.0"
   },
   "prettier": {

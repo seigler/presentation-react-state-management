@@ -1,12 +1,12 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 import { ErrorPage } from './error-page'
 import { App } from './App'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
-    path: '/*',
+    path: '*',
     element: <App />,
     errorElement: <ErrorPage />
   }
