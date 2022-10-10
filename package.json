@@ -8,8 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel",
     "build": "parcel build",
-    "deploy": "git-directory-deploy --directory dist/",
-    "clean": "rm -rf ./dist ./.cache ./.parcel-cache"
+    "deploy": "echo > ./dist/.nojekyll && git-directory-deploy --directory dist/",
+    "clean": "rm -rf ./dist",
+    "publish": "npm run clean && npm run build && npm run deploy"
   },
   "keywords": [
     "presentation",
@@ -24,6 +25,7 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.3.3",
+    "localforage": "^1.10.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.4.2",
     "react-router-dom": "^6.4.2",

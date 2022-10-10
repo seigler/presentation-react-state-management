@@ -10,10 +10,24 @@ Joshua Seigler - October 2022
 
 ## Usage
 
-`npm run start` for development or local hosting
+NPM scripts (run with <code>npm run <em>scriptname</em></code>)
 
-`npm run build` to populate `./dist` with a packaged build, ready for upload
+### `start`
 
-`npm run clean` to delete `./dist` and various cache folders
+Run the project locally at http://localhost:1234 and watch for code changes
 
-`npm run publish` to upload `./dist` to the GitHub Pages branch
+### `publish`
+
+Runs scripts `clean`, `build`, and `deploy` in order.
+
+### `clean`
+
+Deletes `./dist`
+
+### `build`
+
+Populate `./dist` with a packaged build, ready for upload
+
+### `deploy`
+
+Replace the contents of branch `gh-pages` with the contents of `./dist`
