@@ -28,4 +28,5 @@ Populate `./dist` with a packaged build, ready for upload
 
 ### Notes
 
-Includes a GitHub workflow to automatically build to GitHub Pages. The workflow may require adjusting if your primary branch isn't `main` or the repo isn't named `react-state-management`.
+Includes a GitHub workflow to automatically build to GitHub Pages.
+If your default branch is not `main` the workflow will need to be edited.
