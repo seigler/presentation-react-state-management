@@ -12,6 +12,18 @@ export function ErrorPage() {
       <p>
         <i>{error.statusText || error.message}</i>
       </p>
+      <p>
+        <figure>
+          <img
+            src={`http://placekitten.com/${
+              500 + Math.round(Math.random() * 300)
+            }`}
+            style={{ width: '100%' }}
+            alt="kitten"
+          />
+          <figcaption>It's not so bad, here's a kitten</figcaption>
+        </figure>
+      </p>
     </div>
   )
 }
