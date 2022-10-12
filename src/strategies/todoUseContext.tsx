@@ -43,7 +43,7 @@ const TodoContext = React.createContext({
   dispatchTodoAction: (TodoAction) => {}
 })
 
-export function UseContext() {
+export function TodoUseContext() {
   const [isLoading, setLoading] = useState(true)
   const [todos, dispatchTodoAction] = useReducer(reducer, [])
   const [newTodoText, setNewTodoText] = useState('')

@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import localforage from 'localforage'
 
 type Todo = {
@@ -7,47 +7,16 @@ type Todo = {
   status: 'incomplete' | 'complete'
 }
 
-type TodoAction =
-  | {
-      type: 'delete'
-      value: string
-    }
-  | {
-      type: 'add'
-      value: Todo
-    }
-  | {
-      type: 'replace'
-      value: Todo[]
-    }
-  | {
-      type: 'update'
-      value: Todo
-    }
-const reducer = (state: Todo[], action: TodoAction) => {
-  const { type, value } = action
-  switch (type) {
-    case 'delete':
-      return state.filter((todo) => todo.id !== value)
-    case 'add':
-      return state.concat([value])
-    case 'replace':
-      return value
-    case 'update':
-      return state.map((todo) => (todo.id === value.id ? value : todo))
-  }
-}
-
-export function UseReducer() {
+export function TodoUseState() {
   const [isLoading, setLoading] = useState(true)
-  const [todos, dispatchTodoAction] = useReducer(reducer, [])
+  const [todos, setTodos] = useState<Todo[]>([])
   const [newTodoText, setNewTodoText] = useState('')
 
   useEffect(() => {
     // run once when mounted
     localforage.getItem('react-state-management/todos', (_err, value) => {
       if (value) {
-        dispatchTodoAction({ type: 'replace', value: value as Todo[] }) // validation first would be better
+        setTodos(value as Todo[]) // validation first would be better
       }
       setLoading(false)
     })
@@ -64,16 +33,30 @@ export function UseReducer() {
       text: newTodoText,
       status: 'incomplete' as const
     }
-    dispatchTodoAction({
-      type: 'add',
-      value: newTodo
-    })
+    const newTodos = [...todos, newTodo]
     setNewTodoText('')
+    setTodos(newTodos)
+  }
+
+  function todoSetter(id: string, newValue?: Todo) {
+    setTodos(
+      todos.reduce((acc, cur) => {
+        if (cur.id === id) {
+          if (newValue === undefined) {
+            return acc
+          } else {
+            return [...acc, newValue]
+          }
+        } else {
+          return [...acc, cur]
+        }
+      }, [] as Todo[])
+    )
   }
 
   return (
     <main style={isLoading ? { pointerEvents: 'none', cursor: 'wait' } : {}}>
-      <TodoList todos={todos} dispatch={dispatchTodoAction} />
+      <TodoList todos={todos} todoSetter={todoSetter} />
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -94,15 +77,15 @@ export function UseReducer() {
 
 function TodoList({
   todos,
-  dispatch
+  todoSetter
 }: {
   todos: Todo[]
-  dispatch: (TodoAction) => void
+  todoSetter: (id: string, newValue?: Todo) => void
 }) {
   return (
     <>
       {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} dispatch={dispatch} />
+        <TodoItem key={todo.id} todo={todo} todoSetter={todoSetter} />
       ))}
     </>
   )
@@ -110,10 +93,10 @@ function TodoList({
 
 function TodoItem({
   todo,
-  dispatch
+  todoSetter
 }: {
   todo: Todo
-  dispatch: (TodoAction) => void
+  todoSetter: (id: string, newValue?: Todo) => void
 }) {
   return (
     <label
@@ -122,18 +105,15 @@ function TodoItem({
       }>
       <a
         style={{ float: 'right' }}
-        onClick={() => dispatch({ type: 'delete', value: todo.id })}>
+        onClick={() => todoSetter(todo.id, undefined)}>
         x
       </a>
       <input
         type="checkbox"
         onChange={(e) => {
-          dispatch({
-            type: 'update',
-            value: {
-              ...todo,
-              status: e.target.checked ? 'complete' : 'incomplete'
-            }
+          todoSetter(todo.id, {
+            ...todo,
+            status: e.target.checked ? 'complete' : 'incomplete'
           })
         }}
         checked={todo.status === 'complete'}

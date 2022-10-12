@@ -35,7 +35,7 @@ function updateTodo(value: Todo) {
   todos.value = todos.value.map((t) => (t.id === value.id ? value : t))
 }
 
-export function UseSignal() {
+export function TodoSignal() {
   useEffect(() => {
     // run once when mounted
     localforage.getItem('react-state-management/todos', (_err, value) => {

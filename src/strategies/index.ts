@@ -1,11 +1,11 @@
-import { UseState } from './useState'
-import { UseReducer } from './useReducer'
-import { UseContext } from './useContext'
-import { UseSignal } from './useSignal'
+import { TodoUseState } from './todoUseState'
+import { TodoUseReducer } from './todoUseReducer'
+import { TodoUseContext } from './todoUseContext'
+import { TodoSignal } from './todoSignal'
 
 export const strategies = [
-  { name: 'useState', component: UseState },
-  { name: 'useReducer', component: UseReducer },
-  { name: 'useContext', component: UseContext },
-  { name: 'useSignal', component: UseSignal }
+  { name: 'useState', component: TodoUseState },
+  { name: 'useReducer', component: TodoUseReducer },
+  { name: 'useContext', component: TodoUseContext },
+  { name: 'signals', component: TodoSignal }
 ]
